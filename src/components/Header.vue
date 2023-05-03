@@ -1,20 +1,22 @@
 <template>
-  <div style="height: 80px;line-height: 50px;border-bottom:1px solid #ccc;display: flex">
-    <div style="width: 500px;padding-left: 30px;padding-top: 10px;
+  <div style="height: 20%;line-height: 50px;border-bottom:1px solid #ccc;display: flex">
+    <div style="width: 100%;padding-left: 1%;
     font-size:x-large;font-weight: bold;color: darkslateblue">
       <span>当前时间：{{ newTime }}</span>
     </div>
     <div style="flex: 1"></div>
-    <div style="width: 250px;padding-top: 25px">
+    <div>
       <el-dropdown>
-    <span class="el-dropdown-link" style="font-size: x-large">
+    <span class="el-dropdown-link" style="
+    width: 100%;padding-right: 10%;margin-top: 20%;
+    font-size:large;font-weight: bold;color: darkslateblue">
       当前用户：{{ myInformation.nickName }}
       <el-icon class="el-icon--right">
         <arrow-down/>
       </el-icon>
     </span>
         <template #dropdown>
-          <el-dropdown-menu style="width: 100px; text-align: center">
+          <el-dropdown-menu style="width: 20%; text-align: center">
             <el-dropdown-item @click="show" style="font-size: large">个人信息</el-dropdown-item>
             <el-dropdown-item @click="out" style="font-size: large">退出系统</el-dropdown-item>
           </el-dropdown-menu>

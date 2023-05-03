@@ -1,7 +1,9 @@
 <template>
   <div style="width: 100%; height: 100vh;background-color: cadetblue;overflow: hidden">
     <div style="width: 350px;margin: 150px auto;text-align: center">
-      <div style="color: whitesmoke;font-size: 30px; text-align: center;font-weight: bolder;padding: 20px">欢迎登录
+      <div style="color: whitesmoke;font-size: 30px; text-align: center;font-weight: bolder;padding: 10px">欢迎登录
+      </div>
+      <div style="color: whitesmoke;font-size: 20px; text-align: center;font-weight: bolder;padding: 20px">Believe and Love Yourself
       </div>
       <el-form ref="form" :model="form" size="large" :rules="rules1">
         <el-form-item prop="username">
@@ -19,8 +21,8 @@
       </el-form>
     </div>
     <div>
-      <el-dialog title="注册页面" v-model="dialogVisible" width="35%">
-        <el-form ref="formRegister" :model="formRegister" label-width="15%" :rules="rules2">
+      <el-dialog title="注册页面" v-model="dialogVisible" width="100%">
+        <el-form ref="formRegister" :model="formRegister" label-width="25%" :rules="rules2">
           <el-form-item prop="username" label="用户名">
             <el-input v-model="formRegister.username" clearable></el-input>
           </el-form-item>
@@ -137,10 +139,10 @@ export default {
       })
     },
     register() {
-      this.$refs['formRegister'].validate((valid)=>{
-        if (valid){
+      this.$refs['formRegister'].validate((valid) => {
+        if (valid) {
           request.post("/user/register", this.formRegister).then(res => {
-            sessionStorage.setItem("token",res.data.token)
+            sessionStorage.setItem("token", res.data.token)
             if (res.code === 1) {
               this.$message({
                 type: "success",
@@ -158,8 +160,7 @@ export default {
               })
             }
           })
-        }
-        else {
+        } else {
           this.$message({
             type: "error",
             message: "请输入完整信息"
@@ -180,7 +181,7 @@ export default {
         if (valid) {
           request.post("/user/login", this.form).then(res => {
             if (res.code === 1) {
-              sessionStorage.setItem("token",res.data.token)
+              sessionStorage.setItem("token", res.data.token)
               this.$message({
                 type: "success",
                 message: "登录成功，欢迎" + res.data.nickName
