@@ -129,7 +129,7 @@ export default {
   },
   methods: {
     chatFunc() {
-      request.get("/user/chat/").then(res => {
+      request.get("/user/chat").then(res => {
         if (res.code === 0) {
           this.$message({
             type: "error",
