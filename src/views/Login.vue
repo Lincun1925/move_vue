@@ -3,7 +3,8 @@
     <div style="width: 350px;margin: 150px auto;text-align: center">
       <div style="color: whitesmoke;font-size: 30px; text-align: center;font-weight: bolder;padding: 10px">欢迎登录
       </div>
-      <div style="color: whitesmoke;font-size: 20px; text-align: center;font-weight: bolder;padding: 20px">Believe and Love Yourself
+      <div style="color: whitesmoke;font-size: 20px; text-align: center;font-weight: bolder;padding: 20px">Believe and
+        Love Yourself
       </div>
       <el-form ref="form" :model="form" size="large" :rules="rules1">
         <el-form-item prop="username">
@@ -19,6 +20,10 @@
           <el-button style="width: 150px; font-weight: bold" type="success" @click="func1">注册</el-button>
         </el-form-item>
       </el-form>
+      <div style="color: rgba(56,44,44,0.75);font-size: 15px; text-align: center;font-weight: bolder;padding: 3px">
+        更多
+      </div>
+      <el-button type="warning" icon="el-icon-edit" circle @click="chatFunc"></el-button>
     </div>
     <div>
       <el-dialog title="注册页面" v-model="dialogVisible" width="100%">
@@ -79,6 +84,7 @@ export default {
   data() {
     return {
       form: {},
+      chat: {},
       formRegister: {},
       dialogVisible: false,
       disabled: false,
@@ -122,6 +128,21 @@ export default {
     }
   },
   methods: {
+    chatFunc() {
+      request.get("/user/chat/").then(res => {
+        if (res.code === 0) {
+          this.$message({
+            type: "error",
+            message: res.msg
+          })
+        } else {
+          this.$messageBox({
+            type: "success",
+            message: res.data
+          })
+        }
+      })
+    },
     send() {
       this.disabled = true
       request.get("/user/sendMsg/" + this.formRegister.email).then(res => {
