@@ -201,7 +201,7 @@ export default {
       })
     },
     exportToExcel() {
-      location.href = "http://"+"124.222.212.173"+"/api/user/export";
+      location.href = "http://"+"123.207.210.137"+"/api/user/export";
     }
   },
   data() {

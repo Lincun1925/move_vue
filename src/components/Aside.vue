@@ -12,11 +12,11 @@
           <el-sub-menu index="0">
             <template #title>
               <el-icon><icon-menu /></el-icon>
-              <span>中国移动</span>
+              <span>微服务</span>
             </template>
             <el-menu-item index="1">
               <el-icon><icon-menu /></el-icon>
-              <span>软件开发实战</span>
+              <span>车票管理系统</span>
             </el-menu-item>
           </el-sub-menu>
 
