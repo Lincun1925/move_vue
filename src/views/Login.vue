@@ -163,8 +163,8 @@ export default {
       this.$refs['formRegister'].validate((valid) => {
         if (valid) {
           request.post("/user/register", this.formRegister).then(res => {
-            sessionStorage.setItem("token", res.data.token)
             if (res.code === 1) {
+              sessionStorage.setItem("token", res.data.token)
               this.$message({
                 type: "success",
                 message: "注册成功，欢迎" + res.data.nickName
